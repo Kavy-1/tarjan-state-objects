@@ -8,6 +8,7 @@ class App extends Component {
   state = {
     cohortName: 'Tarjan',
     salutation: 'Hello',
+    creatureOfTheNight: '',
     user: {
       name: 'Ethan',
       whereILive: 'Shafer',
@@ -23,6 +24,13 @@ class App extends Component {
         ...this.state.user,
         pizzaTopping: newPizzaTopping
       } 
+    });
+  }
+
+  onChangeCreature = (event) => {
+    console.log('creature of the night:', event.target.value);
+    this.setState({
+      creatureOfTheNight: event.target.value
     });
   }
 
@@ -45,7 +53,10 @@ class App extends Component {
           <input type="text" placeholder="Favorite Pizza Topping" onChange={this.onChangePizza} />
 
         <h4>Mythical Creatures</h4>
-          <Creatures />
+          <Creatures creatureProp={this.state.creatureOfTheNight} />
+
+        <h4>Creature of the Night:</h4>
+          <input type="text" placeholder="Creature of the Night" onChange={this.onChangeCreature} />
       </div>
     );
   }

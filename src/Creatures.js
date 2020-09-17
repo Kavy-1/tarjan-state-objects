@@ -33,6 +33,10 @@ class Creatures extends Component {
         });
     }
 
+    loveIt = (creatureParam) => {
+        console.log('inside loveIt:', creatureParam);
+    }
+
     render() {
 
     /*  let creaturesListItems = [];
@@ -48,6 +52,9 @@ class Creatures extends Component {
 
         return (
             <div>
+                <h1>Featured Creature of the Night:</h1>
+                <h3>{this.props.creatureProp}</h3>
+
                 <input
                     type="text" 
                     placeholder="New Creature Name" 
@@ -58,7 +65,11 @@ class Creatures extends Component {
                 <button onClick={this.onAddCreature}>Add Creature</button>
 
                 <ul>
-                    {this.state.creatures.map((creature, i) => <li key={i}>{creature}</li>)} 
+                    {this.state.creatures.map((creature, i) => 
+                    <li key={i}>
+                        {creature}
+                        <button onClick={() => this.loveIt(creature)}>Love It!</button>
+                    </li>)}
                 </ul>
             </div>
         );
