@@ -20,7 +20,7 @@ class Creatures extends Component {
             newCreatureName: '',
             creatures: [
                 ...this.state.creatures,
-                this.state.newCreatureName
+                creatureParam
             ]
         });
     }
