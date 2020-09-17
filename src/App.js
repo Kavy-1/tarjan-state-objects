@@ -52,8 +52,7 @@ class App extends Component {
         <h4>Edit user</h4>
           <input type="text" placeholder="Favorite Pizza Topping" onChange={this.onChangePizza} />
 
-        <h4>Mythical Creatures</h4>
-          <Creatures creatureProp={this.state.creatureOfTheNight} />
+          <Creatures creatureOfTheNight={this.state.creatureOfTheNight} />
 
         <h4>Creature of the Night:</h4>
           <input type="text" placeholder="Creature of the Night" onChange={this.onChangeCreature} />

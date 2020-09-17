@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import CreatureForm from './CreatureForm';
 
 class Creatures extends Component {
 
     state = {
-        newCreatureName: '',
         creatures: [
             'Unicorn',
             'Sphinx',
@@ -14,22 +14,14 @@ class Creatures extends Component {
     };
 
     // Capture and store the new creature name
-    onAddCreature = () => {
-        console.log('new creature name is:', this.state.newCreatureName);
+    onAddCreature = (creatureParam) => {
+        console.log('new creature name is:', creatureParam);
         this.setState({
             newCreatureName: '',
             creatures: [
                 ...this.state.creatures,
                 this.state.newCreatureName
             ]
-        });
-    }
-
-    // Add the stored creature name to our list
-    onChangeCreatureName = (event) => {
-        let newCreatureName = event.target.value;
-        this.setState({
-            newCreatureName: newCreatureName
         });
     }
 
@@ -53,16 +45,9 @@ class Creatures extends Component {
         return (
             <div>
                 <h1>Featured Creature of the Night:</h1>
-                <h3>{this.props.creatureProp}</h3>
+                <h3>{this.props.creatureOfTheNight}</h3>
 
-                <input
-                    type="text" 
-                    placeholder="New Creature Name" 
-                    onChange={this.onChangeCreatureName} 
-                    value={this.state.newCreatureName} 
-                />
-
-                <button onClick={this.onAddCreature}>Add Creature</button>
+                <CreatureForm onAddCreature={this.onAddCreature}/>
 
                 <ul>
                     {this.state.creatures.map((creature, i) => 
